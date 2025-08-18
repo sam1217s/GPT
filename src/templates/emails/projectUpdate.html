@@ -1,0 +1,155 @@
+<!-- ===== src/templates/emails/projectUpdate.html ===== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualización del Proyecto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #3f51b5 0%, #2196f3 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .update-message {
+            background-color: #f0f7ff;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .stat-card {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2196f3;
+            display: block;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .view-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3f51b5 0%, #2196f3 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .view-button:hover {
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Actualización del Proyecto</h1>
+            <p>{{projectName}}</p>
+        </div>
+        
+        <div class="content">
+            <p>Hola <strong>{{firstName}}</strong>,</p>
+            
+            <p>Hay novedades importantes en el proyecto <strong>{{projectName}}</strong>:</p>
+            
+            <div class="update-message">
+                <h3>🔔 Actualización</h3>
+                <p>{{updateMessage}}</p>
+                <p><small><strong>Fecha:</strong> {{updateDate}}</small></p>
+            </div>
+            
+            <div class="project-stats">
+                <div class="stat-card">
+                    <span class="stat-number">{{completedTasks}}</span>
+                    <div class="stat-label">Tareas Completadas</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{totalTasks}}</span>
+                    <div class="stat-label">Total Tareas</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{progressPercentage}}%</span>
+                    <div class="stat-label">Progreso</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">{{daysRemaining}}</span>
+                    <div class="stat-label">Días Restantes</div>
+                </div>
+            </div>
+            
+            <div style="background-color: #fff3e0; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <h4>📋 Próximas tareas importantes:</h4>
+                <ul>
+                    {{#each upcomingTasks}}
+                    <li><strong>{{title}}</strong> - Vence: {{dueDate}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{projectUrl}}" class="view-button">Ver Proyecto</a>
+            </div>
+            
+            <p style="color: #666; font-size: 14px; margin-top: 30px;">
+                Mantente al día con las actualizaciones del proyecto para no perderte nada importante.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>Enviado por {{senderName}} • {{senderRole}}</p>
+            <p>© 2024 Project Management API. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

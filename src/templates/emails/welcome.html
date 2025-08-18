@@ -1,0 +1,136 @@
+<!-- ===== src/templates/emails/welcome.html ===== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Bienvenido a Project Management!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .welcome-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .features {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .features h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>¡Bienvenido {{firstName}}!</h1>
+            <p>Tu cuenta ha sido creada exitosamente</p>
+        </div>
+        
+        <div class="content">
+            <p class="welcome-message">
+                Nos complace darte la bienvenida a <strong>Project Management</strong>, 
+                la plataforma que transformará la manera en que gestionas tus proyectos y colaboras con tu equipo.
+            </p>
+            
+            <div class="features">
+                <h3>🚀 ¿Qué puedes hacer ahora?</h3>
+                <ul class="feature-list">
+                    <li>Crear y gestionar proyectos ilimitados</li>
+                    <li>Colaborar en tiempo real con tu equipo</li>
+                    <li>Asignar tareas y hacer seguimiento del progreso</li>
+                    <li>Recibir notificaciones automáticas</li>
+                    <li>Generar reportes y análisis inteligentes</li>
+                    <li>Utilizar funciones de IA para optimizar tu trabajo</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{loginUrl}}" class="cta-button">Iniciar Sesión</a>
+            </div>
+            
+            <p style="margin-top: 30px; color: #666; font-size: 14px;">
+                <strong>Datos de tu cuenta:</strong><br>
+                Email: {{email}}<br>
+                Fecha de registro: {{registrationDate}}
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+            <p>© 2024 Project Management API. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+
+<!-- ===== src/templates/emails/projectInvitation.html ===== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación al Proyecto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .project-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .project-info h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .join-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .join-button:hover {
+            transform: translateY(-2px);
+        }
+        .team-info {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 ¡Invitación al Proyecto!</h1>
+            <p>Te han invitado a colaborar</p>
+        </div>
+        
+        <div class="content">
+            <p>Hola <strong>{{firstName}}</strong>,</p>
+            
+            <p>¡Tenemos excelentes noticias! Has sido invitado a formar parte del equipo del proyecto:</p>
+            
+            <div class="project-info">
+                <h2>{{projectName}}</h2>
+                <p>{{projectDescription}}</p>
+            </div>
+            
+            <div class="team-info">
+                <h3>👥 Información del equipo</h3>
+                <p><strong>Invitado por:</strong> {{invitedBy}}</p>
+                <p><strong>Tu rol:</strong> {{userRole}}</p>
+                <p><strong>Fecha de invitación:</strong> {{invitationDate}}</p>
+                <p><strong>Miembros actuales:</strong> {{memberCount}} personas</p>
+            </div>
+            
+            <p>Como miembro del equipo podrás:</p>
+            <ul>
+                <li>✅ Ver el progreso del proyecto en tiempo real</li>
+                <li>✅ Colaborar en tareas asignadas</li>
+                <li>✅ Comunicarte con el equipo</li>
+                <li>✅ Recibir notificaciones automáticas</li>
+                <li>✅ Acceder a documentos y recursos compartidos</li>
+            </ul>
+            
+            <div style="text-align: center;">
+                <a href="{{projectUrl}}" class="join-button">Unirse al Proyecto</a>
+            </div>
+            
+            <p style="color: #666; font-size: 14px; margin-top: 30px;">
+                Si no deseas formar parte de este proyecto, simplemente ignora este email.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>¡Estamos emocionados de tenerte en el equipo!</p>
+            <p>© 2024 Project Management API. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+

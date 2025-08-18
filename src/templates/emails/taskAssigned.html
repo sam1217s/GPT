@@ -1,0 +1,151 @@
+<!-- ===== src/templates/emails/taskAssigned.html ===== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Tarea Asignada</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .task-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            background-color: #fafafa;
+        }
+        .task-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 15px 0;
+        }
+        .task-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .meta-item {
+            background-color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            border: 1px solid #e0e0e0;
+        }
+        .priority-high { border-left: 4px solid #f44336; }
+        .priority-medium { border-left: 4px solid #ff9800; }
+        .priority-low { border-left: 4px solid #4caf50; }
+        .priority-critical { border-left: 4px solid #9c27b0; }
+        
+        .view-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .view-button:hover {
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Nueva Tarea Asignada</h1>
+            <p>Tienes trabajo por hacer</p>
+        </div>
+        
+        <div class="content">
+            <p>Hola <strong>{{firstName}}</strong>,</p>
+            
+            <p>Se te ha asignado una nueva tarea en el proyecto <strong>{{projectName}}</strong>:</p>
+            
+            <div class="task-card priority-{{priorityClass}}">
+                <div class="task-title">{{taskTitle}}</div>
+                <p>{{taskDescription}}</p>
+                
+                <div class="task-meta">
+                    <div class="meta-item">
+                        <strong>Prioridad:</strong> {{priority}}
+                    </div>
+                    <div class="meta-item">
+                        <strong>Fecha límite:</strong> {{dueDate}}
+                    </div>
+                    <div class="meta-item">
+                        <strong>Tiempo estimado:</strong> {{estimatedHours}} horas
+                    </div>
+                    <div class="meta-item">
+                        <strong>Asignado por:</strong> {{assignedBy}}
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: #e8f5e8; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <h4>💡 Próximos pasos:</h4>
+                <ol>
+                    <li>Revisa los detalles de la tarea</li>
+                    <li>Comunícate con el equipo si tienes dudas</li>
+                    <li>Actualiza el progreso regularmente</li>
+                    <li>Marca como completada cuando termines</li>
+                </ol>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{taskUrl}}" class="view-button">Ver Tarea</a>
+            </div>
+            
+            <p style="color: #666; font-size: 14px; margin-top: 30px;">
+                Recuerda que puedes ver todas tus tareas en tu panel de control.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>¡Mucho éxito con tu nueva tarea!</p>
+            <p>© 2024 Project Management API. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
